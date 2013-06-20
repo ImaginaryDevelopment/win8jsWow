@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pets</title>
+               <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <link href="/css/default.css" rel="stylesheet" />
+    </head>
+    <body>
+      <div data-role="character info" data-bind="visible:character">
+          <a href="#" data-bind="attr:{href:thumbnail,title:thumbnail}">
+          <img data-bind="attr:{src:thumbnail}" src="#" /></a>
+          <span data-bind="text:character() && character().level"></span>
+      </div>
+        <div>Pets: 
+        <select data-bind="options:realms,optionsText:'name',value:realm"></select>
+        <input data-bind="value:characterName" />
+            <span class="error" data-bind="text:error"></span>
+        <button data-bind="click:fetchPets">Lookup</button>
+            <div>
+                <span data-bind="text:'showing '+page()*pagesize()+' to ' +(page()*pagesize()+pagesize())"></span>
+            <button data-bind="click:firstPage">&lt;&lt;</button>
+            <button data-bind="click:prevPage">&lt;</button>
+            <button data-bind="click:nextPage,enable:canNext">&gt;</button>
+            <button data-bind="click:lastPage,disable:isLast">&gt;&gt;</button>
+            </div>
+            <table><thead>
+                <tr><th>name</th><th>Creature</th><th>level</th><th>favorite</th></tr></thead>
+                <tbody data-bind="foreach:petsdisplayed">
+                    <tr><td data-bind="text:name"></td>
+                        <td data-bind="text:creatureName,css:{'color-q1':qualityId==1,'color-q2':qualityId==2,'color-q3':qualityId==3,'color-q4':qualityId==4}"></td>
+                        <td data-bind="text:stats.level,css:{'color-q1':stats.level<7,'color-q2':stats.level>=7 && stats.level<14,'color-q3':stats.level>=14 && stats.level<20,'color-q4':stats.level>=20}"></td>
+                        <td><input disabled="disabled" type="checkbox" data-bind="checked:isFavorite" /></td><td><img src="#" data-bind="attr:{src:'http://media.blizzard.com/wow/renders/npcs/pet/creature'+$data.creatureId+'.jpg'}" /></td></tr>
+                </tbody>
+            </table>
+            </div>
+        <script src="/scripts/knockout-2.2.1.js"></script>
+        <script src="pets.js"></script>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>kotesting</title>
+               <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <link href="/css/default.css" rel="stylesheet" />
+    </head>
+    <body>
+       <div data-bind="text:helloknockout"></div>
+        <input data-bind="value:helloknockout" />
+        <div>Pets: 
+        <select data-bind="options:realms,optionsText:'name',value:realm"></select>
+        <input data-bind="value:character" />
+            <span class="error" data-bind="text:error"></span>
+        <button data-bind="click:fetchPets">Fetch Pets</button>
+
+            <button data-bind="click:firstPage">&lt;&lt;</button>
+            <button data-bind="click:prevPage">&gt;</button>
+            <button data-bind="click:nextPage">&gt;</button>
+            
+            <table data-win-options="{layout: {type: WinJS.UI.ListLayout}}"><thead>
+                <tr><th>name</th><th>quality</th><th>Creature</th><th>level</th></tr></thead>
+                <tbody data-bind="foreach:petsdisplayed">
+                    <tr><td data-bind="text:name"></td><td data-bind="text:qualityId"></td><td data-bind="text:creatureName"></td><td data-bind="text:stats.level"></td></tr>
+                </tbody>
+            </table>
+            </div>
+        <script src="/scripts/knockout-2.2.1.js"></script>
+        <script src="kotesting.js"></script>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+﻿body {
+}
+
+@media screen and (-ms-view-state: fullscreen-landscape) {
+}
+
+@media screen and (-ms-view-state: filled) {
+}
+
+@media screen and (-ms-view-state: snapped) {
+}
+
+@media screen and (-ms-view-state: fullscreen-portrait) {
+}
+.error {
+    color:red;
+}
+.color-q4, .color-q4 a {
+    color: #c600ff;
+}
+.color-q3, .color-q3 a {
+    color: #0081ff;
+}
+.color-q2, .color-q2 a {
+    color: #1eff00;
+}
+.color-q1, .color-q1 a {
+    color: #ffffff;
+}
